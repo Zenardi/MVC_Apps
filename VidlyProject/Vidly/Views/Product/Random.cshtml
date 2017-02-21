@@ -1,0 +1,24 @@
+﻿@model Vidly.ViewModels.RandomProductViewModel
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Product.Description</h2>
+
+@if (Model.Customers.Count.Equals(0))
+{
+    <text>Nenhum Cliente</text>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
+

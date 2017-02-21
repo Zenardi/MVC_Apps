@@ -1,0 +1,24 @@
+﻿@using Vidly.Models
+@model IEnumerable<Vidly.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produtos</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Produtos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prod in Model)
+        {
+            <tr>
+                <td>@prod.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
