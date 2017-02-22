@@ -1,0 +1,20 @@
+﻿@model Vidly.ViewModels.NewOrderViewModel
+@{
+    ViewBag.Title = "Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Incluir Pedido</h2>
+
+@using (Html.BeginForm("Saveorder", "Order"))
+{
+    <div class="form-group">
+        @Html.Label("Cliente")
+        @Html.DropDownList("Cliente", new SelectList(Model.Customers,"Id","Name"),"Selecione o Cliente", new {@class="form-control"})
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+
+
+}
+

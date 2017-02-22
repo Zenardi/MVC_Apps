@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\201702211848087_ApplyAnotationsToCustomerName.Designer.cs">
       <DependentUpon>201702211848087_ApplyAnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702220107230_AddOrder1.cs" />
+    <Compile Include="Migrations\201702220107230_AddOrder1.Designer.cs">
+      <DependentUpon>201702220107230_AddOrder1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -205,6 +210,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\NewOrderViewModel.cs" />
     <Compile Include="ViewModels\RandomProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +275,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Customer\New.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702211848087_ApplyAnotationsToCustomerName.resx">
       <DependentUpon>201702211848087_ApplyAnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702220107230_AddOrder1.resx">
+      <DependentUpon>201702220107230_AddOrder1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
