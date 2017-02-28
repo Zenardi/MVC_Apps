@@ -21,17 +21,22 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             var clients = _context.Customers.ToList();
-            var viewModel = new NewOrderViewModel
+            var products = _context.Product.ToList();
+
+            var viewModel = new OrderFormViewModel
             {
-                Customers = clients
+                Customers = clients,
+                Products = products
             };
+
+
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult SaveOrder(Order viewModel)
+        public ActionResult Save(Order formViewModel)
         {
-            _context.Order.Add(viewModel);
+            _context.Order.Add(formViewModel);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Order");

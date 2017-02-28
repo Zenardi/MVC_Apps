@@ -7,10 +7,12 @@
 }
 
 <h2>Produtos</h2>
-<table class="table table-bordered table-hover">
+<table id="products" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Produtos</th>
+            <th>Valor</th>
+            <th>Deletar</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +20,23 @@
         {
             <tr>
                 <td>@prod.Description</td>
+                <td>@prod.Value</td>
+                <td>
+                    <button class="btn-link js-delete">Deletar</button>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#products .js-delete").on("click", function() {
+                if (confirm("Tem Certeza?")) {
+                }
+            });
+        });
+    </script>
+}

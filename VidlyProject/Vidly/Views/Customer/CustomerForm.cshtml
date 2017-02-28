@@ -7,7 +7,7 @@
 
 <h2>Novo Cliente</h2>
 
-@using (Html.BeginForm("Criar", "Customer"))
+@using (Html.BeginForm("Create", "Customer"))
 {
     <div class="form-group">
         @Html.Label("Nome")
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         @Html.Label("CPF")
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control" })
     </div>
 }
 

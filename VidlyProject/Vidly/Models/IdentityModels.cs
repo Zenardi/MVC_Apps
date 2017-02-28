@@ -24,7 +24,7 @@ namespace Vidly.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Order> Order { get; set; }
-        public DbSet<NewOrderViewModel> NewOrderViewModel { get; set; }
+        public DbSet<OrderFormViewModel> OrderFormViewModel { get; set; }
         
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

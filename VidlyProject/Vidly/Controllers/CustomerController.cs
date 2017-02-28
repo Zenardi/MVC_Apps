@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -18,7 +19,7 @@ namespace Vidly.Controllers
 
         public ActionResult New()
         {
-            return View();
+            return View("CustomerForm");
         }
 
         protected override void Dispose(bool disposing)
@@ -33,7 +34,7 @@ namespace Vidly.Controllers
             return View(customers);
         }
 
-        public ActionResult Details(String id)
+        public ActionResult Details(int id)
         {
             var customer =_context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
@@ -43,5 +44,25 @@ namespace Vidly.Controllers
         }
 
 
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if(customer == null)
+                return HttpNotFound();
+            var viewModel = new Customer
+            {
+                Name = customer.Name,
+                Cpf = customer.Cpf
+                
+            };
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create()
+        {
+            return View("CustomerForm");
+        }
     }
 }
