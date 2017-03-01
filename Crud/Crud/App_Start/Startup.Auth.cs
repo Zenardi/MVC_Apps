@@ -54,9 +54,9 @@ namespace Crud
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1867473300142626",
+               appSecret: "dcf8cd11bd09bdbcdeecdac377ee54e1");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
