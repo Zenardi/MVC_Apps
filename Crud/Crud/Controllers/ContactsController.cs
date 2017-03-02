@@ -32,7 +32,7 @@ namespace Crud.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            if (contact == null && !EnsureIsUserContact(contact))
             {
                 return HttpNotFound();
             }
@@ -43,6 +43,7 @@ namespace Crud.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.UserId = GetCurrentUserId();
             return View();
         }
 
@@ -61,6 +62,7 @@ namespace Crud.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.UserId = GetCurrentUserId();
             return View(contact);
         }
 
@@ -73,10 +75,11 @@ namespace Crud.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            if (contact == null && !EnsureIsUserContact(contact))
             {
                 return HttpNotFound();
             }
+            ViewBag.UserId = GetCurrentUserId();
             return View(contact);
         }
 
@@ -94,6 +97,7 @@ namespace Crud.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserId = GetCurrentUserId();
             return View(contact);
         }
 
@@ -106,7 +110,7 @@ namespace Crud.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            if (contact == null && !EnsureIsUserContact(contact))
             {
                 return HttpNotFound();
             }

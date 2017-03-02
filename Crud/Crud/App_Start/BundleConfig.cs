@@ -19,16 +19,23 @@ namespace Crud
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                        "~/Scripts/jquery-ui.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-spacelab.css",
-                      "~/Content/Datatables/css/jquery.dataTables.min.cs",
-                      "~/Content/Datatables/css/jquery.dataTables_themeroller.min.cs",
-                      "~/Content/Datatables/css/dataTables.bootstrap.min.cs",
-                      "~/Content/Datatables/css/colReorder.bootstrap.min.cs",
+                      "~/Content/Datatables/css/jquery.dataTables.min.css",
+                      "~/Content/Datatables/css/jquery.dataTables_themeroller.min.css",
+                      "~/Content/Datatables/css/dataTables.bootstrap.min.css",
+                      "~/Content/Datatables/css/colReorder.bootstrap.min.css",
+                      "~/Content/jquery-ui.min.css",
+                      "~/Content/jquery-ui.structure.min.css",
+                      "~/Content/jquery-ui.theme.min.css",
+
                       "~/Content/site.css"));
         }
     }
