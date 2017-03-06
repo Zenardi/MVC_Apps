@@ -26,25 +26,6 @@ namespace Vidly.Controllers
             };
         }
 
-        // GET: Product/Random
-        public ActionResult Random()
-        {
-            var prod = new Product() {Description = "Produto 1", Value = 10};
-            var customer = new List<Customer>
-            {
-                new Customer {Name = "Cliente 1"},
-                new Customer {Name = "Cliente 2"}
-
-            };
-            var viewModel = new RandomProductViewModel
-            {
-                Product = prod,
-                Customers = customer
-            };
-            return View(viewModel);
-        }
-
-
     }
 
 

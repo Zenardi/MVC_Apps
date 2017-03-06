@@ -20,17 +20,9 @@ namespace Vidly.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            var clients = _context.Customers.ToList();
-            var products = _context.Product.ToList();
-
-            var viewModel = new OrderFormViewModel
-            {
-                Customers = clients,
-                Products = products
-            };
-
-
-            return View(viewModel);
+            ViewBag.CustomersList = GetCustomersName();
+            ViewBag.ProductList = GetProductsList();
+            return View();
         }
 
         [HttpPost]
@@ -40,6 +32,20 @@ namespace Vidly.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Order");
+        }
+
+        public Customer[] GetCustomersName()
+        {
+            var customersName = _context.Customers.ToArray();
+
+            return customersName;
+        }
+
+        public Product[] GetProductsList()
+        {
+            var products = _context.Product.ToArray();
+
+            return products;
         }
     }
 }
