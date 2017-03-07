@@ -15,9 +15,13 @@ namespace Blockbuster.Models
         public String Name { get; set; }
 
         public bool IsSubscribedNewsLetter { get; set; }
+
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "Membership Type")]
         public byte MembershipTypesId { get; set; }
 
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthdate { get; set; }
     }
 }

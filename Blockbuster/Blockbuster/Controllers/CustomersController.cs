@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Blockbuster.Models;
+using Blockbuster.ViewModels;
 
 namespace Blockbuster.Controllers
 {
@@ -22,6 +23,39 @@ namespace Blockbuster.Controllers
             _context.Dispose();
         }
 
+        public ActionResult Save()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View("CustomerForm",viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            ///Create or Update Customer
+            if(customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypesId = customer.MembershipTypesId;
+                customerInDb.IsSubscribedNewsLetter = customer.IsSubscribedNewsLetter;
+
+                //or use
+                //TryUpdateModel(customerInDb);
+                //or 
+                //use auto mapper ==> Mapper.Map(customer, customerInDb);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
+
         public ViewResult Index()
         {
             var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
@@ -37,6 +71,20 @@ namespace Blockbuster.Controllers
                 return HttpNotFound();
 
             return View(customer);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
         }
     }
 }
