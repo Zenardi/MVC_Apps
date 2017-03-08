@@ -7,20 +7,22 @@ using Blockbuster.Models;
 
 namespace Blockbuster.Dtos
 {
-    public class CustomerDto
+    public class MovieDto
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Enter customer name")]
+        [Required]
         [StringLength(255)]
         public String Name { get; set; }
+       
+        [Required]
+        public byte GenreId { get; set; }
 
-        public bool IsSubscribedNewsLetter { get; set; }
-        
-        
-        public byte MembershipTypesId { get; set; }
-        
-        //[Min18YearsIfMember]
-        public DateTime? Birthdate { get; set; }
+        public DateTime DateAdded { get; set; }
+
+        public DateTime ReleaseDate { get; set; }
+
+        [Range(1, 20)]
+        public byte NumberInStock { get; set; }
     }
 }
