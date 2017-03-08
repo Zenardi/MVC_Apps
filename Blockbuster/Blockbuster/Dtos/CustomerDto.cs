@@ -16,7 +16,8 @@ namespace Blockbuster.Dtos
         public String Name { get; set; }
 
         public bool IsSubscribedNewsLetter { get; set; }
-        
+
+        public MembershipTypeDto MembershipType { get; set; }
         
         public byte MembershipTypesId { get; set; }
         
