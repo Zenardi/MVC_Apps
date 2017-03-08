@@ -10,7 +10,7 @@ namespace Blockbuster.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enter customer name")]
         [StringLength(255)]
         public String Name { get; set; }
 
@@ -22,6 +22,7 @@ namespace Blockbuster.Models
         public byte MembershipTypesId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfMember]
         public DateTime? Birthdate { get; set; }
     }
 }

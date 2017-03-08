@@ -219,6 +219,14 @@
     <Compile Include="Migrations\201703062114552_AddGenreTable1.Designer.cs">
       <DependentUpon>201703062114552_AddGenreTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703080055513_DbChanges.cs" />
+    <Compile Include="Migrations\201703080055513_DbChanges.Designer.cs">
+      <DependentUpon>201703080055513_DbChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703080141432_MovieDbChanges.cs" />
+    <Compile Include="Migrations\201703080141432_MovieDbChanges.Designer.cs">
+      <DependentUpon>201703080141432_MovieDbChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -226,10 +234,12 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +305,8 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +352,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703062114552_AddGenreTable1.resx">
       <DependentUpon>201703062114552_AddGenreTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703080055513_DbChanges.resx">
+      <DependentUpon>201703080055513_DbChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703080141432_MovieDbChanges.resx">
+      <DependentUpon>201703080141432_MovieDbChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
