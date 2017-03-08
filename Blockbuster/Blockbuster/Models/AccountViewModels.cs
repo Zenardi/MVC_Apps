@@ -9,6 +9,10 @@ namespace Blockbuster.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Driving License")]
+        public String DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel

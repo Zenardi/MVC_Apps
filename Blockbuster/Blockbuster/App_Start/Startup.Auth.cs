@@ -54,9 +54,9 @@ namespace Blockbuster
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1007778992686933",
+               appSecret: "8cbdb8edb79fe525459337947045a344");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
