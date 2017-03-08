@@ -9,6 +9,7 @@ using Blockbuster.ViewModels;
 
 namespace Blockbuster.Controllers
 {
+
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -68,7 +69,7 @@ namespace Blockbuster.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
-
+        
         public ViewResult Index()
         {
             //removed because now Jquery is rendering the table

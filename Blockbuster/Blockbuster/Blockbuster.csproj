@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201703080141432_MovieDbChanges.Designer.cs">
       <DependentUpon>201703080141432_MovieDbChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703081945376_SeeduUers.cs" />
+    <Compile Include="Migrations\201703081945376_SeeduUers.Designer.cs">
+      <DependentUpon>201703081945376_SeeduUers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -499,13 +503,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -557,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703080141432_MovieDbChanges.resx">
       <DependentUpon>201703080141432_MovieDbChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703081945376_SeeduUers.resx">
+      <DependentUpon>201703081945376_SeeduUers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,11 +26,16 @@ namespace Blockbuster.Controllers
         public ViewResult Index()
         {
             //Important to use Include to bring Genre data along with Movies data
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            //var movies = _context.Movies.Include(m => m.Genre).ToList();
 
-            return View(movies);
+            //return View(movies);
+
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            return View("ReadOnlyList");
         }
-
+        
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New()
         {
             var genres = _context.Genres.ToList();
