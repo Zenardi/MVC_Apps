@@ -20,10 +20,15 @@ namespace Blockbuster.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(String query = null)
         {
-            return _context.Movies
-                .Include(m => m.Genre)
+            var moviesQuery = _context.Movies
+                .Include(m => m.Genre).Where(c=>c.NumberAvailable > 0);
+
+            if(!String.IsNullOrWhiteSpace(query))
+                moviesQuery = moviesQuery.Where(m=>m.Name.Contains(query));
+
+            return moviesQuery
                 .ToList()
                 .Select(Mapper.Map<Movie, MovieDto>);
         }

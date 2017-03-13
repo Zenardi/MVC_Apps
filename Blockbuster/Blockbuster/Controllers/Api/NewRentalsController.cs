@@ -12,6 +12,12 @@ namespace Blockbuster.Controllers.Api
     public class NewRentalsController : ApiController
     {
         private ApplicationDbContext _context;
+
+        public NewRentalsController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
