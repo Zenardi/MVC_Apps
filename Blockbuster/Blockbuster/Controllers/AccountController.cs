@@ -153,7 +153,12 @@ namespace Blockbuster.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser
-                { UserName = model.Email, Email = model.Email, DrivingLicence = model.DrivingLicense};
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    DrivingLicence = model.DrivingLicense,
+                    PhoneNumber = model.Phone
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -376,7 +381,12 @@ namespace Blockbuster.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DrivingLicence = model.DrivingLicense};
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    DrivingLicence = model.DrivingLicense
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
